@@ -1,6 +1,7 @@
 import random
 import string
 from wordlist import words
+from hangman_lives import lives_pict
 
 
 def validate_word():
@@ -11,7 +12,7 @@ def validate_word():
     return word.upper()
     
 def hangman():
-    word=validate_word()
+    word=validate_word() 
     word_set=set(word)
     letter_used=set()
     alphabet=set(string.ascii_uppercase)
@@ -35,6 +36,7 @@ def hangman():
             else:
                 lives-=1
                 print("your letter is not in the word")
+                print(lives_pict[lives])
         elif (user_letter in letter_used ):
             print('you have already used the letter')
         else:
